@@ -1,145 +1,737 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChaceysGames Studio - Contact</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<meta name="theme-color" content="#151515">
+<meta name="description" content="Contact Chace Labs regarding software development, technology, projects, and collaboration.">
+
+<title>Contact — Chace Labs</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-:root{--accent-hue:30;--intensity:70} /* Orange theme */
+:root {
+    color-scheme: dark;
 
-body{
- font-family:'Inter',sans-serif;
- background:radial-gradient(circle at 20% 20%,hsl(var(--accent-hue),40%,calc(var(--intensity)*1%)),#0f0f14 60%);
- color:#f5f5f5;
- overflow-x:hidden;
- transition:background .6s ease;
- display:flex;
- flex-direction:column;
- min-height:100vh;
- justify-content:center;
- align-items:center;
+    --background: #151515;
+    --surface: #1c1c1c;
+    --surface-hover: #222222;
+    --border: #333333;
+    --border-subtle: #292929;
+
+    --text: #f2f0eb;
+    --text-secondary: #aaa79f;
+    --text-muted: #77756f;
+
+    --accent: #d49a46;
+    --accent-hover: #e6ad5b;
+    --accent-subtle: rgba(212, 154, 70, 0.10);
+
+    --container: 1120px;
 }
 
-canvas{position:fixed;inset:0;z-index:-2}
-
-header{text-align:center;margin-bottom:3rem;}
-header h1{
- font-size:3rem;font-weight:900;letter-spacing:-1px;
- background:linear-gradient(90deg,#fff,hsl(var(--accent-hue),90%,70%));
- -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-header p{margin-top:1rem;font-size:1.1rem;opacity:.8}
-
-.card{
- background:rgba(255,255,255,.04);
- padding:3rem;border-radius:24px;
- backdrop-filter:blur(12px);
- border:1px solid rgba(255,255,255,.05);
- transition:transform .2s ease, box-shadow .3s ease;
- transform-style:preserve-3d;
- will-change:transform;
- text-align:center;
- max-width:400px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.button{
- display:inline-block;
- margin-top:1.5rem;
- padding:.8rem 2rem;
- border-radius:999px;
- font-weight:800;
- cursor:pointer;border:none;
- background:linear-gradient(90deg,#fff,hsl(var(--accent-hue),90%,75%));
- color:#000;
- transition:transform .15s ease, box-shadow .2s ease;
- position:relative;
- overflow:hidden;
+html {
+    scroll-behavior: smooth;
 }
-.button:active{transform:scale(.92)}
-.button:hover{transform:scale(1.08);box-shadow:0 15px 35px hsla(var(--accent-hue),90%,60%,.5)}
-.button::after{
- content:"";position:absolute;inset:0;
- background:radial-gradient(circle at center,rgba(255,255,255,.6),transparent 60%);
- opacity:0;transition:.3s;
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
 }
-.button:hover::after{opacity:.2}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+::selection {
+    background: var(--accent);
+    color: #151515;
+}
+
+.container {
+    width: min(calc(100% - 48px), var(--container));
+    margin-inline: auto;
+}
+
+/* NAVIGATION */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    background: rgba(21, 21, 21, 0.96);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid #72542e;
+    border-radius: 5px;
+
+    background: var(--accent-subtle);
+    color: var(--accent);
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.brand-name {
+    font-size: 16px;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+}
+
+.brand-name span {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 13px;
+    transition: color 160ms ease;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.nav-links .nav-cta {
+    padding: 8px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    color: var(--accent);
+}
+
+/* MAIN */
+
+main {
+    flex: 1;
+}
+
+.hero {
+    padding: 88px 0 65px;
+
+    border-bottom: 1px solid var(--border-subtle);
+
+    background:
+        radial-gradient(
+            ellipse at 85% 10%,
+            rgba(212, 154, 70, 0.055),
+            transparent 45%
+        ),
+        var(--background);
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin-top: 16px;
+
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 1.12;
+    letter-spacing: -2.5px;
+    font-weight: 700;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin-top: 20px;
+
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* CONTACT LAYOUT */
+
+.contact-section {
+    padding: 65px 0 90px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.panel {
+    padding: 32px;
+
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+
+    background: var(--surface);
+}
+
+.panel h2 {
+    margin-top: 9px;
+    margin-bottom: 12px;
+
+    font-size: 23px;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+}
+
+.panel-description {
+    margin-bottom: 25px;
+
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* CONTACT METHODS */
+
+.contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 19px 0;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.method-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid #493b29;
+    border-radius: 5px;
+
+    background: var(--accent-subtle);
+    color: var(--accent);
+
+    font-size: 16px;
+}
+
+.method-content {
+    min-width: 0;
+}
+
+.method-label {
+    display: block;
+    margin-bottom: 3px;
+
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.method-value {
+    display: inline-block;
+    overflow-wrap: anywhere;
+
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 160ms ease;
+}
+
+a.method-value:hover {
+    color: var(--accent);
+}
+
+.method-note {
+    margin-top: 4px;
+
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* COLLABORATION PANEL */
+
+.collaboration-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.collaboration-panel .panel-description {
+    margin-bottom: 20px;
+}
+
+.topic-list {
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.topic-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-subtle);
+
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.topic-list li::before {
+    content: "—";
+    margin-right: 10px;
+    color: var(--accent);
+}
+
+.collaboration-panel .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 10px 18px;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    background: var(--accent);
+    color: #17130e;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 160ms ease,
+        border-color 160ms ease;
+}
+
+.button:hover {
+    background: var(--accent-hover);
+}
+
+/* RESPONSE NOTE */
+
+.response-note {
+    margin-top: 24px;
+    padding: 18px 20px;
+
+    border-left: 2px solid var(--accent);
+    background: var(--accent-subtle);
+
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.response-note strong {
+    color: var(--text);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-brand {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.footer-meta {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+/* REVEAL */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity 400ms ease,
+        transform 400ms ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+        padding: 17px 0;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 70px 0 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .hero h1 {
+        font-size: 39px;
+        letter-spacing: -1.5px;
+    }
+
+    .panel {
+        padding: 23px;
+    }
+
+    .contact-section {
+        padding: 40px 0 60px;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
+<header class="site-header">
+    <div class="container navbar">
 
-<header class="reveal">
-<h1>Contact ChaceysGames Studio</h1>
-<p>We'd love to hear from you about game engines, projects, or collaborations!</p>
+        <a class="brand" href="index.html" aria-label="Chace Labs home">
+            <span class="brand-mark">C</span>
+
+            <span class="brand-name">
+                Chace <span>Labs</span>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="index.html#about">About</a>
+            <a href="index.html#technology">Technology</a>
+            <a href="index.html#devlog">Updates</a>
+            <a href="projects.html">Projects</a>
+            <a href="https://chaceysgames.itch.io/"
+               target="_blank" rel="noopener noreferrer">itch.io</a>
+            <a href="contact.html" class="nav-cta"
+               aria-current="page">Contact</a>
+        </nav>
+
+    </div>
 </header>
 
-<div class="card reveal">
-<h2>Get in Touch</h2>
-<p>Email: <a href="mailto:chaceysgamesyt@gmail.com" style="color:#fff;text-decoration:underline;">contact chaceysgames studio</a></p>
-<p>Discord: <span style="color:#fff">chaceysgamesyt</span></p>
-<a href="#" class="button">Send a Message</a>
-</div>
+<main>
+
+    <section class="hero">
+        <div class="container reveal">
+
+            <p class="eyebrow">Contact / Enquiries</p>
+
+            <h1>Let's start a conversation.</h1>
+
+            <p class="hero-description">
+                For questions about our software, development projects,
+                technology, or potential collaborations, use the contact
+                details below.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+
+            <div class="contact-grid">
+
+                <section class="panel reveal"
+                         aria-labelledby="contact-details-heading">
+
+                    <p class="eyebrow">Direct contact</p>
+
+                    <h2 id="contact-details-heading">
+                        Get in touch
+                    </h2>
+
+                    <p class="panel-description">
+                        Choose the contact method that works best for you.
+                    </p>
+
+                    <div class="contact-method">
+
+                        <span class="method-icon"
+                              aria-hidden="true">@</span>
+
+                        <div class="method-content">
+
+                            <span class="method-label">Email</span>
+
+                            <a class="method-value"
+                               href="mailto:chaceysgamesyt@gmail.com">
+                                chaceysgamesyt@gmail.com
+                            </a>
+
+                            <p class="method-note">
+                                Project enquiries and general questions.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+
+                        <span class="method-icon"
+                              aria-hidden="true">#</span>
+
+                        <div class="method-content">
+
+                            <span class="method-label">Discord</span>
+
+                            <span class="method-value">
+                                chaceysgamesyt
+                            </span>
+
+                            <p class="method-note">
+                                Community and development discussions.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="response-note">
+                        <strong>Contact information</strong><br>
+                        Email is the direct contact option. Please include
+                        enough detail to explain your enquiry.
+                    </div>
+
+                </section>
+
+                <section class="panel collaboration-panel reveal"
+                         aria-labelledby="collaboration-heading">
+
+                    <p class="eyebrow">Work with us</p>
+
+                    <h2 id="collaboration-heading">
+                        What can we discuss?
+                    </h2>
+
+                    <p class="panel-description">
+                        Chace Labs works across software development,
+                        custom technology, and interactive projects.
+                        Enquiries may include:
+                    </p>
+
+                    <ul class="topic-list">
+                        <li>Software and tool development</li>
+                        <li>Game engines and interactive systems</li>
+                        <li>AI and experimental technology</li>
+                        <li>Project questions and feedback</li>
+                        <li>Potential collaborations</li>
+                    </ul>
+
+                    <a class="button"
+                       href="mailto:chaceysgamesyt@gmail.com?subject=Chace%20Labs%20Enquiry">
+                        Send an email
+                    </a>
+
+                </section>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-inner">
+
+        <div>
+            <div class="footer-brand">Chace Labs</div>
+
+            <p class="footer-meta">
+                Independent software development.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+
+            <a href="projects.html">Projects</a>
+
+            <a href="https://chaceysgames.itch.io/"
+               target="_blank" rel="noopener noreferrer">
+                itch.io
+            </a>
+
+            <a href="https://www.youtube.com/@chaceysgamesstudio/"
+               target="_blank" rel="noopener noreferrer">
+                YouTube
+            </a>
+        </div>
+
+        <p class="footer-meta">
+            &copy; <span id="year">2026</span> Chace Labs
+        </p>
+
+    </div>
+</footer>
 
 <script>
-// ---------- PARTICLES ----------
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-canvas.width=innerWidth;canvas.height=innerHeight;
-addEventListener('resize',()=>{canvas.width=innerWidth;canvas.height=innerHeight});
-let hue=30;
-const particles=[];
-for(let i=0;i<80;i++){
- particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,life:Infinity})
-}
-function animate(){
- ctx.clearRect(0,0,canvas.width,canvas.height);
- ctx.fillStyle=`hsla(${hue},90%,70%,.6)`;
- particles.forEach((p,index)=>{
-  p.x+=p.vx;p.y+=p.vy;
-  if(p.life!==Infinity){p.life--;if(p.life<=0){particles.splice(index,1);return;}}
-  if(p.x<0||p.x>canvas.width)p.vx*=-1;
-  if(p.y<0||p.y>canvas.height)p.vy*=-1;
-  ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill();
- });
- requestAnimationFrame(animate);
-}
-animate();
+"use strict";
 
-// ---------- TILT EFFECT ----------
-const tiltState=new Map();
-function updateTilt(){
- document.querySelectorAll('.card').forEach(card=>{
-  if(!tiltState.has(card)) tiltState.set(card,{tx:0,ty:0,cx:0,cy:0});
-  const state=tiltState.get(card);
-  state.cx+=(state.tx-state.cx)*0.08;state.cy+=(state.ty-state.cy)*0.08;
-  card.style.transform=`rotateX(${state.cy}deg) rotateY(${state.cx}deg) scale(1.03)`;
-  card.style.boxShadow=`${-state.cx*4}px ${state.cy*4+30}px 60px rgba(0,0,0,.6)`;
- });
- requestAnimationFrame(updateTilt);
+/* Scroll reveal */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.08 }
+    );
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+} else {
+    revealElements.forEach(element => {
+        element.classList.add("visible");
+    });
 }
-updateTilt();
-document.addEventListener('mousemove',e=>{
- document.querySelectorAll('.card').forEach(card=>{
-  const rect=card.getBoundingClientRect();
-  const x=e.clientX-rect.left;const y=e.clientY-rect.top;
-  const state=tiltState.get(card);
-  if(!state) return;
-  if(x>0&&x<rect.width&&y>0&&y<rect.height){state.tx=(x/rect.width-.5)*14;state.ty=(y/rect.height-.5)*-14;}
-  else{state.tx=0;state.ty=0;}
- });
-});
 
-// ---------- SCROLL INTENSITY ----------
-window.addEventListener('scroll',()=>{const scroll=window.scrollY/(document.body.scrollHeight-window.innerHeight);document.documentElement.style.setProperty('--intensity',60+scroll*20);});
+/* Automatic footer year */
 
-// ---------- SCROLL REVEAL ----------
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.2});
-document.querySelectorAll('.reveal').forEach(r=>observer.observe(r));
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
 
 </body>
 </html>
+```
